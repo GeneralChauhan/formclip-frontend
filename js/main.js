@@ -1,7 +1,6 @@
 baseURL  = "https://api.formclip.xyz";
 
 function registerUser(email){
-	console.log(email);
 	if(email == "") {
         alert("Kindly fill in the email field!");
         return;
@@ -21,10 +20,9 @@ function registerUser(email){
 	
 	axios(config)
 	.then(function (response) {
-		console.log(JSON.stringify(response.data.response));
-		alert(JSON.stringify(response.data.response));
+		alert(JSON.stringify(response.data.message));
 	})
 	.catch(function (error) {
-		console.log(error);
+		alert(JSON.stringify(error.response.data.message));
 	});
 }
