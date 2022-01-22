@@ -1,10 +1,18 @@
 baseURL  = "https://api.formclip.xyz";
 
+function isEmailValid(email){
+	let emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	return emailPattern.test(email)
+}
 function registerUser(email){
 	if(email == "") {
         alert("Kindly fill in the email field!");
         return;
     }
+	if(!isEmailValid(email)){
+		alert("Please enter a valid email address!");
+		return;
+	}
 	var data = JSON.stringify({
 		"email": email
 	});
